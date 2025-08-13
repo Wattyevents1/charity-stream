@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@/components/ui/breadcrumb";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList } from "@/components/ui/breadcrumb";
 import {
   Activity,
   BarChart3,
@@ -111,16 +111,18 @@ export default function AdminLayout() {
             <SidebarTrigger />
             <Separator orientation="vertical" className="mx-1 h-6" />
             <Breadcrumb>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/admin">Admin</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              {pathParts.slice(1).map((part, idx) => (
-                <BreadcrumbItem key={idx}>
-                  <BreadcrumbLink>{part.replaceAll("-", " ")}</BreadcrumbLink>
+              <BreadcrumbList>
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link to="/admin">Admin</Link>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
-              ))}
+                {pathParts.slice(1).map((part, idx) => (
+                  <BreadcrumbItem key={idx}>
+                    <BreadcrumbLink>{part.replaceAll("-", " ")}</BreadcrumbLink>
+                  </BreadcrumbItem>
+                ))}
+              </BreadcrumbList>
             </Breadcrumb>
             <div className="ml-auto flex items-center gap-2">
               <Input placeholder="Search…" className="h-9 w-48 md:w-72" />
