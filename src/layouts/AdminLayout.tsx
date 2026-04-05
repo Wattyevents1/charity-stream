@@ -119,7 +119,7 @@ export default function AdminLayout() {
                 </BreadcrumbItem>
                 {pathParts.slice(1).map((part, idx) => (
                   <BreadcrumbItem key={idx}>
-                    <BreadcrumbLink>{part.replaceAll("-", " ")}</BreadcrumbLink>
+                    <BreadcrumbLink>{part.split("-").join(" ")}</BreadcrumbLink>
                   </BreadcrumbItem>
                 ))}
               </BreadcrumbList>
